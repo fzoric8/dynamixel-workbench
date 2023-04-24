@@ -4,14 +4,18 @@
 joint0:
   ID: 1
   Return_Delay_Time: 0
+  Operating_Mode: 3
 joint1:
   ID: 2
   Return_Delay_Time: 0
-joint3: 
+  Operating_Mode: 3
+joint3:
   ID: 3
   Return_Delay_Time: 0
-joint4: 
+  Operating_Mode: 3
+joint4:
   ID: 4
   Return_Delay_Time: 0
+  Operating_Mode: 3
 
 
