@@ -14,7 +14,7 @@
     <param name="use_moveit"              value="$(arg use_moveit)"/>
     <param name="use_joint_states_topic"  value="$(arg use_joint_state)"/>
     <param name="use_cmd_vel_topic"       value="$(arg use_cmd_vel)"/>
-    <remap from="/red_manipulator/joint_trajectory" to="/red_manipulator/arm_controller/command"/>
+    <!--remap from="/red_manipulator/joint_trajectory" to="/red_manipulator/arm_controller/command"/-->
     <rosparam>
       publish_period: 0.010
       dxl_read_period: 0.010
@@ -24,10 +24,7 @@
 
   <rosparam file="$(find dynamixel_workbench_controllers)/config/arm_controller.yaml" command="load"/>
 
-  <!--node ns="arm" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args="joint_state_controller arm_controller"/!-->
-
-  <node name="trajectory_republisher" pkg="dynamixel_workbench_controllers" type="trajectory_republisher"
+  <node ns="red_manipulator" name="trajectory_republisher" pkg="dynamixel_workbench_controllers" type="trajectory_republisher.py"
         required="true" output="screen"/>
 
 </launch>

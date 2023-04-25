@@ -15,6 +15,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   geometry_msgs
   trajectory_msgs
+  control_msgs
   dynamixel_workbench_msgs
   dynamixel_workbench_toolbox
   cmake_modules
@@ -94,6 +95,9 @@ install(DIRECTORY launch config
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
+catkin_install_python(PROGRAMS scripts/trajectory_republisher.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 ################################################################################
 # Test
 ################################################################################
