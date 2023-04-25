@@ -6,7 +6,7 @@ red_manipulator:
       - joint1
       - joint2
       - joint3
-    directions: [1, -1, 1, 1]
+    directions: [1, 1, 1, 1]
 
     constraints:
       goal_time: 5.0
