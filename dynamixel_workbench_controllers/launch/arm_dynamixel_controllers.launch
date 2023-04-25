@@ -27,4 +27,7 @@
   <!--node ns="arm" name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
     output="screen" args="joint_state_controller arm_controller"/!-->
 
+  <node name="trajectory_republisher" pkg="dynamixel_workbench_controllers" type="trajectory_republisher"
+        required="true" output="screen"/>
+
 </launch>
