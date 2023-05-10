@@ -37,11 +37,18 @@ Publish joint position on the topic:
 rostopic pub -1 /set_position_dynamixel_sdk_examples/SetPosition "id: 1, position: 500"
 ```
 
+## Control table 
+
+In order to control arm it is neccessary to setup dynamixel Control Table. 
+
+Motor Control Table can be found [here](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/). 
 
 # TODO: 
 
 - [x] Explore OpenManipulator --> new OpenManipulator doesn't have MoveIt!
 - [x] Find out how to enable `joint_trajectory_controller` interface for the currently used manipulator
 - [x] Add joint_states for moveit
-- [ ] Fix motor direction
+- [x] Fix motor direction
+- [ ] Add offset fix
 - [ ] Find out how to control end effector position (roscpp/moveit node for commanding `arm` move_group)
+- [ ] Continuous planning/servoing 

@@ -2,11 +2,12 @@ red_manipulator:
   trajectory_controller:
     type: position_controllers/JointTrajectoryController
     joints:
-      - joint0
       - joint1
       - joint2
       - joint3
-    directions: [1, 1, 1, 1]
+      - joint4
+    # Doesn't affect the controller
+    #directions: [-1, -1, -1, -1]
 
     constraints:
       goal_time: 5.0

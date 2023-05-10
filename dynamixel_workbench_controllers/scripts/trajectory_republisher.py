@@ -13,6 +13,7 @@ class TrajectoryRepublisher():
         self.run_ready = False
         self.ready = False
         self.trajectory_reciv = False
+        self.joint_states_reciv = False
 
         self.trajectory_sub_name = "arm_controller/follow_joint_trajectory/goal"
         self.trajectory_pub_name = "joint_trajectory"
@@ -50,13 +51,18 @@ class TrajectoryRepublisher():
 
     def joint_states_cb(self, msg):
          
+         self.joint_states_reciv = True
          self.joint_states = msg 
+         rospy.loginfo_throttle_identical(20, "Recieved joint states!")
 
     def homing(self):
-
-         joint_positions = self.joint_states.position
-         homing_trajectory = self.create_homing_trajectory(joint_positions, 50, 0.1)
-         self.trajectory_pub.publish(homing_trajectory)
+        
+        if not self.joint_states_reciv: 
+            rospy.logwarn("Waiting for joint states")
+            return
+        joint_positions = self.joint_states.position
+        homing_trajectory = self.create_homing_trajectory(joint_positions, 100, 0.05)
+        self.trajectory_pub.publish(homing_trajectory)
     
     def create_homing_trajectory(self, curr_joint_positions, num_meas, period):
          
