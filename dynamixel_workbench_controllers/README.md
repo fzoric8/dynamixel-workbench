@@ -43,6 +43,13 @@ In order to control arm it is neccessary to setup dynamixel Control Table.
 
 Motor Control Table can be found [here](https://emanual.robotis.com/docs/en/dxl/x/xm430-w350/). 
 
+## Launch controllers for the WP arm 
+
+```
+roslaunch dynamixel_workbench_controllers arm_dynamixel_controllers.launch 
+```
+
+
 # TODO: 
 
 - [x] Explore OpenManipulator --> new OpenManipulator doesn't have MoveIt!
